@@ -9,6 +9,15 @@ import java.time.LocalDate;
 @Schema(description = "Data Transfer Object (DTO) containing the necessary information to create or update an Employee.")
 public record EmployeeRequestDTO(
         @Schema(
+                description = "The unique business/serial number assigned to the employee.",
+                example = "EMP-2026-0089",
+                requiredMode = Schema.RequiredMode.REQUIRED
+        )
+        @NotBlank(message = "Employee number is required.")
+        @Size(max = 20, message = "Employee number must not exceed 20 characters.")
+        String number,
+
+        @Schema(
                 description = "The first name of the employee.",
                 example = "Carlos",
                 requiredMode = Schema.RequiredMode.REQUIRED

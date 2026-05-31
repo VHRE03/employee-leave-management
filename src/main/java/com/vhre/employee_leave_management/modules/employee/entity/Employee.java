@@ -26,6 +26,9 @@ public class Employee extends AuditableEntity {
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
+    @Column(name = "number", unique = true, nullable = false, length = 20)
+    private String number;
+
     @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;
 

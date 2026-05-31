@@ -22,6 +22,12 @@ public class EmployeeResponseDTO extends AuditableResponseDTO {
     private UUID id;
 
     @Schema(
+            description = "The unique business/serial number of the employee.",
+            example = "EMP-2026-0089"
+    )
+    private String number;
+
+    @Schema(
             description = "The first name of the employee.",
             example = "Carlos"
     )
