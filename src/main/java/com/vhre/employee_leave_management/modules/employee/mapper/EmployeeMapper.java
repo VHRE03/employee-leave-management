@@ -13,6 +13,7 @@ import org.mapstruct.MappingTarget;
  * {@link Employee} domain entities and their respective Data Transfer Objects (DTO).
  * <p>
  * Registered as a Spring Bean using {@link MappingConstants.ComponentModel#SPRING}.
+ * </p>
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface EmployeeMapper {
