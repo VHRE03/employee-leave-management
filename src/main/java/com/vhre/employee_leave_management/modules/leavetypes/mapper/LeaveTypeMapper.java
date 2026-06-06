@@ -1,8 +1,8 @@
-package com.vhre.employee_leave_management.modules.leavetypes.entity.mapper;
+package com.vhre.employee_leave_management.modules.leavetypes.mapper;
 
 import com.vhre.employee_leave_management.modules.leavetypes.entity.LeaveType;
-import com.vhre.employee_leave_management.modules.leavetypes.entity.dto.LeaveTypeRequestDTO;
-import com.vhre.employee_leave_management.modules.leavetypes.entity.dto.LeaveTypeResponseDTO;
+import com.vhre.employee_leave_management.modules.leavetypes.dto.LeaveTypeRequestDTO;
+import com.vhre.employee_leave_management.modules.leavetypes.dto.LeaveTypeResponseDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;

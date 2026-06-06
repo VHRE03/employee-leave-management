@@ -1,13 +1,11 @@
-package com.vhre.employee_leave_management.modules.leavetypes.entity.dto;
+package com.vhre.employee_leave_management.modules.leavetypes.dto;
 
-import com.vhre.employee_leave_management.modules.leavetypes.entity.enums.Gender;
+import com.vhre.employee_leave_management.modules.leavetypes.enums.Gender;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
-import java.util.UUID;
 
 @Schema(description = "Data Transfer Object (DTO) containing the necessary information to create or update an Leave Type.")
 public record LeaveTypeRequestDTO(

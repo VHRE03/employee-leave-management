@@ -1,7 +1,7 @@
 package com.vhre.employee_leave_management.modules.leavetypes.entity;
 
 import com.vhre.employee_leave_management.core.utils.auditable_entity.AuditableEntity;
-import com.vhre.employee_leave_management.modules.leavetypes.entity.enums.Gender;
+import com.vhre.employee_leave_management.modules.leavetypes.enums.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;

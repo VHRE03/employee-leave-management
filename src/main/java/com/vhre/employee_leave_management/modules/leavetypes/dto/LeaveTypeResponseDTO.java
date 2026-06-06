@@ -1,6 +1,6 @@
-package com.vhre.employee_leave_management.modules.leavetypes.entity.dto;
+package com.vhre.employee_leave_management.modules.leavetypes.dto;
 
-import com.vhre.employee_leave_management.modules.leavetypes.entity.enums.Gender;
+import com.vhre.employee_leave_management.modules.leavetypes.enums.Gender;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 

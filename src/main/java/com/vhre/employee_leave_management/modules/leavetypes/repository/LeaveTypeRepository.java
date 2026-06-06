@@ -1,7 +1,7 @@
-package com.vhre.employee_leave_management.modules.leavetypes.entity.repository;
+package com.vhre.employee_leave_management.modules.leavetypes.repository;
 
 import com.vhre.employee_leave_management.modules.leavetypes.entity.LeaveType;
-import com.vhre.employee_leave_management.modules.leavetypes.entity.enums.Gender;
+import com.vhre.employee_leave_management.modules.leavetypes.enums.Gender;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

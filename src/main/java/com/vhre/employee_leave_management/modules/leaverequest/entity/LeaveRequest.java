@@ -1,4 +1,4 @@
-package com.vhre.employee_leave_management.modules.leaverequest;
+package com.vhre.employee_leave_management.modules.leaverequest.entity;
 
 import com.vhre.employee_leave_management.core.utils.auditable_entity.AuditableEntity;
 import com.vhre.employee_leave_management.modules.employee.entity.Employee;
