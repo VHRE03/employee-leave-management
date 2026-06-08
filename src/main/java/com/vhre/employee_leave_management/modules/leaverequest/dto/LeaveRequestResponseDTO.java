@@ -1,5 +1,6 @@
 package com.vhre.employee_leave_management.modules.leaverequest.dto;
 
+import com.vhre.employee_leave_management.core.utils.auditable_dto.AuditableResponseDTO;
 import com.vhre.employee_leave_management.modules.leaverequest.enums.CompensationType;
 import com.vhre.employee_leave_management.modules.leaverequest.enums.LeaveRequestStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -15,7 +16,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Schema(description = "Data Transfer Object representing a fully detailed record of a Leave Request transaction.")
-public class LeaveRequestResponseDTO {
+public class LeaveRequestResponseDTO extends AuditableResponseDTO {
 
     @Schema(description = "Unique identifier (UUID) of the leave request record.", example = "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d")
     private UUID id;
@@ -58,10 +59,4 @@ public class LeaveRequestResponseDTO {
 
     @Schema(description = "The contextual description written by the applicant.", example = "Annual family medical checkup and rest.")
     private String reason;
-
-    @Schema(description = "Timestamp when the request was originally created.", example = "2026-06-05T10:15:30Z")
-    private Instant createdAt;
-
-    @Schema(description = "Timestamp when the request was last updated or changed state.", example = "2026-06-05T22:11:00Z")
-    private Instant updatedAt;
 }

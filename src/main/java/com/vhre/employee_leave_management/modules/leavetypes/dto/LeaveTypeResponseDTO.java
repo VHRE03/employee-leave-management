@@ -1,5 +1,6 @@
 package com.vhre.employee_leave_management.modules.leavetypes.dto;
 
+import com.vhre.employee_leave_management.core.utils.auditable_dto.AuditableResponseDTO;
 import com.vhre.employee_leave_management.modules.leavetypes.enums.Gender;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -12,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @Schema(description = "Data Transfer Object representing a fully populated Leave Type record sent back to the client.")
-public class LeaveTypeResponseDTO {
+public class LeaveTypeResponseDTO extends AuditableResponseDTO {
     @Schema(
             description = "Unique database identifier (UUID) of the leave type.",
             example = "f47ac10b-58cc-4372-a567-0e02b2c3d479"

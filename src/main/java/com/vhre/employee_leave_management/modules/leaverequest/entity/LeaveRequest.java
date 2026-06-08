@@ -71,7 +71,7 @@ public class LeaveRequest extends AuditableEntity {
     private BigDecimal deductionPercentage;
 
     @Column(name = "deduction_amount", precision = 10, scale = 2)
-    private Float deductionAmount;
+    private BigDecimal deductionAmount;
 
     @Column(name = "reason", columnDefinition = "TEXT")
     private String reason;
