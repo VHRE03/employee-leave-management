@@ -16,7 +16,12 @@ import org.mapstruct.MappingTarget;
  * implementation managed as a Spring Bean.
  * </p>
  */
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+@Mapper(
+        componentModel = MappingConstants.ComponentModel.SPRING,
+        // 💡 DESACTIVA EL USO DEL BUILDER EN MAPSTRUCT:
+        // Esto obliga a MapStruct a usar los getters/setters tradicionales que sí ven la herencia
+        builder = @org.mapstruct.Builder(disableBuilder = true)
+)
 public interface LeaveTypeMapper {
 
     /**

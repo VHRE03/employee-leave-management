@@ -76,4 +76,18 @@ public record LeaveTypeRequestDTO(
         @NotNull(message = "requiresDoc flag is required.")
         Boolean requiresDoc
 ) {
+    /**
+     * Compact constructor to enforce cross-field domain invariants during deserialization.
+     */
+    public LeaveTypeRequestDTO {
+        // Guard Clause: Consecutive days cannot mathematically bypass yearly caps
+        if (maxConsecutiveDays != null && maxDaysPerYear != null && maxConsecutiveDays > maxDaysPerYear) {
+            throw new IllegalArgumentException("Maximum consecutive days cannot exceed the total maximum days per year.");
+        }
+
+        // Guard Clause: Enforces structural dependency when policy allows accumulation
+        if (Boolean.TRUE.equals(isAccumulable) && maxAccumulationDays == null) {
+            throw new IllegalArgumentException("Maximum accumulation days must be provided when the leave type is marked as accumulable.");
+        }
+    }
 }

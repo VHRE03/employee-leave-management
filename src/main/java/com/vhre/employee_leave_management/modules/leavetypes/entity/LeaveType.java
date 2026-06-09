@@ -25,11 +25,11 @@ public class LeaveType extends AuditableEntity {
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
-    @Column(name = "name", nullable = false, unique = true, length = 50)
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "applicable_gender")
+    @Column(name = "applicable_gender", nullable = false)
     private Gender applicableGender;
 
     @Column(name = "max_days_per_year", nullable = false)
@@ -50,7 +50,7 @@ public class LeaveType extends AuditableEntity {
     private Integer maxAccumulationDays;
 
     @Builder.Default
-    @Column(name ="requires_doc", nullable = false)
+    @Column(name = "requires_doc", nullable = false)
     private Boolean requiresDoc = false;
 
     @Override
@@ -64,5 +64,28 @@ public class LeaveType extends AuditableEntity {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    @PrePersist
+    @PreUpdate
+    private void validateBusinessRules() {
+        if (Boolean.TRUE.equals(isAccumulable) && maxAccumulationDays == null) {
+            throw new IllegalStateException(
+                    "LeaveType '" + name + "': maxAccumulationDays must not be null when isAccumulable is true"
+            );
+        }
+
+        if (maxDaysPerYear <= maxConsecutiveDays) {
+            throw new IllegalStateException(
+                    "LeaveType '" + name + "': maxDaysPerYear (" + maxDaysPerYear + ") must be greater than maxConsecutiveDays (" + maxConsecutiveDays + ")"
+            );
+        }
+
+        if (maxAccumulationDays != null && maxDaysPerYear <= maxAccumulationDays) {
+            throw new IllegalStateException(
+                    "LeaveType '" + name + "': maxDaysPerYear (" + maxDaysPerYear +
+                            ") must be greater than maxAccumulationDays (" + maxAccumulationDays + ")"
+            );
+        }
     }
 }
